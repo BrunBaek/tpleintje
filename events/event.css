@@ -1,0 +1,163 @@
+:root {
+  --roze: #e8829a;
+  --roze-donker: #c45e78;
+  --roze-licht: #fce8ed;
+  --tekst: #333;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; color: var(--tekst); background: #fafafa; }
+
+/* ── Nav ── */
+nav {
+  background: #fff;
+  border-bottom: 2px solid var(--roze-licht);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: sticky; top: 0; z-index: 100;
+}
+nav a.terug {
+  color: var(--roze-donker);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+nav a.terug:hover { color: var(--roze); }
+nav .site-naam { font-size: 0.9rem; color: #888; }
+
+/* ── Hero ── */
+.event-hero {
+  background: linear-gradient(135deg, var(--roze-donker), var(--roze));
+  color: #fff;
+  padding: 3rem 1.5rem 2rem;
+  text-align: center;
+}
+.event-hero .type-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.event-hero .datum-groot {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 0.4rem;
+}
+.event-hero h1 {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+.event-hero .prijs-badge {
+  display: inline-block;
+  background: #fff;
+  color: var(--roze-donker);
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 0.3rem 1.1rem;
+  font-size: 1rem;
+}
+
+/* ── Content ── */
+.container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+.info-blokken {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.info-blok {
+  background: #fff;
+  border: 1px solid #f0d0d8;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex; flex-direction: column; gap: 0.25rem;
+}
+.info-blok .label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--roze-donker);
+}
+.info-blok .waarde {
+  font-size: 0.95rem;
+  color: var(--tekst);
+}
+
+/* ── Beschrijving ── */
+.beschrijving {
+  background: #fff;
+  border: 1px solid #f0d0d8;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.beschrijving h2 {
+  color: var(--roze-donker);
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+}
+.beschrijving p { margin-bottom: 0.6rem; color: #444; }
+.beschrijving p:last-child { margin-bottom: 0; }
+
+/* ── Inschrijven ── */
+.inschrijf-blok {
+  background: var(--roze-licht);
+  border: 1px solid #f0c0cc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.inschrijf-blok h2 {
+  color: var(--roze-donker);
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+}
+.inschrijf-blok p { font-size: 0.95rem; margin-bottom: 0.5rem; color: #444; line-height: 1.6; }
+.inschrijf-blok strong { color: var(--tekst); }
+.btn-inschrijf {
+  display: inline-block;
+  margin-top: 0.75rem;
+  background: var(--roze-donker);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.65rem 1.4rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+.btn-inschrijf:hover { background: var(--roze); }
+
+/* ── Geen inschrijving nodig ── */
+.gratis-blok {
+  background: #f0faf4;
+  border: 1px solid #b2dfcc;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  color: #2e7d52;
+  font-size: 0.95rem;
+}
+.gratis-blok strong { display: block; margin-bottom: 0.25rem; font-size: 1rem; }
+
+/* ── Footer ── */
+footer {
+  background: var(--roze-donker);
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+footer a { color: #fff; }
