@@ -24,7 +24,13 @@ function einde(ev) {
   return ev.data.einddatum ? new Date(ev.data.einddatum) : new Date(ev.data.datum);
 }
 
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+
 module.exports = function (eleventyConfig) {
+  // Herschrijft absolute links (/css, /images, /over ...) met het pathPrefix,
+  // zodat ze kloppen wanneer de site op een subpad draait (GitHub Pages).
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
   eleventyConfig.addPassthroughCopy("admin");
@@ -80,6 +86,7 @@ module.exports = function (eleventyConfig) {
   );
 
   return {
+    pathPrefix: "/tpleintje/",
     dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk"
