@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+# Decap CMS gebruikt Git Gateway via Netlify Identity.
+# Inschrijvingen kunnen later via een Netlify Function of formulierdienst.

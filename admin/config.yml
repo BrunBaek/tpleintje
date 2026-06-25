@@ -1,0 +1,82 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Maakt lokaal testen mogelijk via: npx decap-server
+local_backend: true
+
+media_folder: "images/events"
+public_folder: "/images/events"
+
+locale: "nl"
+
+collections:
+  - name: "events"
+    label: "Activiteiten"
+    label_singular: "Activiteit"
+    description: "Beheer hier de activiteiten die op de kalender verschijnen."
+    folder: "src/events"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{datum | date('DD/MM/YYYY')}} — {{titel}}"
+    sortable_fields: ["datum", "titel"]
+    fields:
+      - { label: "Titel", name: "titel", widget: "string" }
+      - label: "Categorie"
+        name: "categorie"
+        widget: "select"
+        options:
+          - { label: "🎬 Film", value: "film" }
+          - { label: "🎭 Voorstelling", value: "voorstelling" }
+          - { label: "🩺 Infosessie", value: "infosessie" }
+          - { label: "🚴 Uitstap", value: "uitstap" }
+          - { label: "🥞 Buurtactiviteit", value: "buurtactiviteit" }
+          - { label: "🌿 Buurtactie", value: "buurtactie" }
+          - { label: "🪑 Buurtfeest", value: "buurtfeest" }
+          - { label: "💃 Tentoonstelling", value: "tentoonstelling" }
+      - { label: "Badge-tekst (optioneel — vervangt de categorie-badge)", name: "badge_tekst", widget: "string", required: false }
+      - { label: "Datum", name: "datum", widget: "datetime", date_format: "DD-MM-YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Einddatum (optioneel — voor meerdaagse activiteiten)", name: "einddatum", widget: "datetime", date_format: "DD-MM-YYYY", time_format: false, format: "YYYY-MM-DD", required: false }
+      - { label: "Aanvang", name: "aanvang", widget: "string", required: false, hint: "Bv. 20u00" }
+      - { label: "Label bij aanvang (optioneel)", name: "aanvang_label", widget: "string", required: false, hint: "Standaard 'Aanvang'. Bv. 'Vertrek'." }
+      - { label: "Einduur (optioneel)", name: "einduur", widget: "string", required: false, hint: "Vul in voor een tijdvenster, bv. 17u00" }
+      - { label: "Duur (optioneel)", name: "duur", widget: "string", required: false, hint: "Bv. 1u30" }
+      - { label: "Locatie", name: "locatie_naam", widget: "string", required: false, default: "Buurthuis 't Pleintje, Sint-Baafsstraat" }
+      - { label: "Adres (optioneel)", name: "locatie_adres", widget: "string", required: false }
+      - { label: "Prijs", name: "prijs", widget: "string", hint: "Bv. € 5, Gratis, Vrije bijdrage" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        default: "open"
+        options:
+          - { label: "Open", value: "open" }
+          - { label: "Volzet", value: "volzet" }
+          - { label: "Geannuleerd", value: "geannuleerd" }
+      - { label: "Reden van annulatie (optioneel)", name: "status_reden", widget: "text", required: false }
+      - { label: "Inschrijving nodig?", name: "inschrijving", widget: "boolean", default: false }
+      - { label: "Inschrijven kan binnenkort (vooraankondiging)", name: "inschrijving_binnenkort", widget: "boolean", default: false, required: false }
+      - { label: "Inschrijvingsdeadline (optioneel)", name: "inschrijving_deadline", widget: "string", required: false, hint: "Bv. 5 mei" }
+      - { label: "Plaatsen beperkt", name: "plaatsen_beperkt", widget: "boolean", default: false, required: false }
+      - { label: "Foto (optioneel)", name: "foto", widget: "image", required: false }
+      - { label: "Bijschrift bij foto (optioneel)", name: "foto_bijschrift", widget: "string", required: false }
+      - { label: "Tekst bij 'geen inschrijving nodig' (optioneel)", name: "gratis_tekst", widget: "string", required: false }
+      - { label: "Extra info voor bevestigingsmail (optioneel)", name: "mail_extra", widget: "text", required: false }
+      - { label: "Meer info-link (optioneel)", name: "meer_info_url", widget: "string", required: false }
+      - { label: "Tekst bij de link (optioneel)", name: "meer_info_tekst", widget: "string", required: false }
+      - label: "Extra info-blokjes (optioneel)"
+        name: "extra_blokken"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "Waarde", name: "waarde", widget: "string" }
+      - label: "Fotogalerij (optioneel)"
+        name: "galerij"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Afbeelding", name: "afbeelding", widget: "image" }
+          - { label: "Bijschrift", name: "bijschrift", widget: "string", required: false }
+      - { label: "Beschrijving", name: "body", widget: "markdown" }

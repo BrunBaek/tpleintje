@@ -1,0 +1,39 @@
+---
+layout: base.njk
+pagina: archief
+title: "Voorbije activiteiten – Buurtcomité 't Pleintje"
+permalink: /archief/
+---
+
+<header class="page-header">
+  <div class="titel-rij">
+    <img class="bloesem links" src="/images/tak-kerselaar.jpg" alt="" aria-hidden="true" />
+    <h1>Voorbije activiteiten</h1>
+    <img class="bloesem" src="/images/tak-kerselaar.jpg" alt="" aria-hidden="true" />
+  </div>
+  <p class="tagline">Een terugblik op wat we samen beleefden</p>
+</header>
+
+<main class="tekst-container">
+  <section class="blok">
+    {% if collections.voorbije.length == 0 %}
+    <p class="lege-kalender">Er zijn nog geen voorbije activiteiten om te tonen.</p>
+    {% else %}
+    <div class="archief-grid">
+      {% for ev in collections.voorbije %}
+      <a class="archief-kaart" href="{{ ev.url }}">
+        {% if ev.data.foto %}
+        <img src="{{ ev.data.foto }}" alt="{{ ev.data.titel }}" />
+        {% else %}
+        <div class="geen-foto">{{ categorieen[ev.data.categorie].emoji or "📅" }}</div>
+        {% endif %}
+        <div class="tekst">
+          <h3>{{ ev.data.titel }}</h3>
+          <span class="datum-klein">{{ ev.data.datum | datumLang }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </section>
+</main>

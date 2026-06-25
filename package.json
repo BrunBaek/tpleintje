@@ -1,0 +1,13 @@
+{
+  "name": "tpleintje-website",
+  "version": "1.0.0",
+  "description": "Website Buurtcomité 't Pleintje",
+  "license": "MIT",
+  "scripts": {
+    "start": "eleventy --serve --port=8742",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

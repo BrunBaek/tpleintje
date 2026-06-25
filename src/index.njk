@@ -1,0 +1,154 @@
+---
+layout: base.njk
+pagina: home
+title: "Buurtcomité 't Pleintje – Sint-Baafsstraat, 8200 Sint-Andries"
+---
+
+<header class="hero" id="top">
+  <div class="logo-rij">
+    <img class="bloesem links" src="/images/tak-kerselaar.jpg" alt="" aria-hidden="true" />
+    <img class="hero-logo" src="/images/logo.png" alt="'t Pleintje" />
+    <img class="bloesem" src="/images/tak-kerselaar.jpg" alt="" aria-hidden="true" />
+  </div>
+  <h1>'t Pleintje</h1>
+  <p class="tagline">Brengt samen</p>
+  <p>Een warm buurtcomité in de Sint-Baafsstraat, 8200 Sint-Andries.<br>
+  Voor en door de buurt — iedereen is welkom!</p>
+</header>
+
+<section id="over">
+  <div class="container">
+    <div class="over-sub">
+      <h2>Welkom</h2>
+      <p>Vind je het ook fijn om je buren te leren kennen? Om samen te leren, te spelen, te sporten, te eten, te drinken, en vooral plezier te maken…?</p>
+      <p>Dan ben je aan het juiste adres: <strong>Buurthuis 't Pleintje</strong>. Het is gelegen op het kruispunt van de Sint-Baafsstraat en de Diksmuidse Heerweg.</p>
+      <p>Van <strong>0 tot 110 jaar</strong> — jullie zijn welkom!</p>
+    </div>
+
+    <div class="over-sub">
+      <h2>Onze buurt</h2>
+      <p>We bedelen nieuwsbrieven in dit gebied:</p>
+      <img class="buurtkaart" src="/images/buurtkaart-map.jpg" alt="Kaart van onze buurt: het werkingsgebied is in het rood omlijnd, rond de Sint-Baafsstraat in Sint-Andries (tussen o.a. de Manitobalaan, Gistelse Steenweg en Torhoutse Steenweg)." />
+      <p class="kaart-bron">Kaartgegevens © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>-bijdragers</p>
+      <p>Woon je iets verder in de buurt? Je bent <strong>ook welkom</strong>.</p>
+      <div class="info-box">
+        <strong>📩 Digitale nieuwsbrief</strong>
+        <p>Wil je het nieuws digitaal ontvangen? Stuur een mailtje naar <a href="mailto:{{ site.email }}?subject=Digitale nieuwsbrief">{{ site.email }}</a> met vermelding <em>'digitale nieuwsbrief'</em>.</p>
+      </div>
+    </div>
+
+    <div class="over-sub">
+      <h2>Geschiedenis</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-jaar">1968</div>
+          <div><p>Het buurtpaviljoen wordt gebouwd als <strong>'Kaarterspaviljoen'</strong>. Het beheer valt onder OCMW – Mintus Brugge.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-jaar">2022</div>
+          <div><p>Bij buurtbijeenkomsten inspireert het vaak ongebruikte Paviljoentje tot <strong>nieuwe ideeën</strong> en mogelijke initiatieven.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-jaar">2023</div>
+          <div><p>Oprichting van <strong>Buurtcomité 't Pleintje</strong>.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:1.5rem">
+      <a href="/over/" style="color:var(--roze-donker);font-weight:600;text-decoration:none">Meer over het buurthuis, ons team en onze partners →</a>
+    </p>
+  </div>
+</section>
+
+<section id="vast">
+  <div class="container">
+    <h2>Vaste activiteiten</h2>
+    <div class="vast-grid">
+      <div class="vast-item">
+        <h3>🃏 Kaarten, Rummikub, Triominos…</h3>
+        <p>Elke <strong>maandag van 14u tot 17u</strong> in het buurthuis. Gratis, geen inschrijving nodig. Gewoon binnenstappen!</p>
+      </div>
+      <div class="vast-item">
+        <h3>🏃 Loopclub 't Pleintje</h3>
+        <p>Elke <strong>zondag om 9u stipt</strong> — 5 en/of 10 km lopen. Vertrek aan het buurthuis. Interesse? Contacteer ons voor de WhatsApp-groep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kalender">
+  <div class="container">
+    <h2>Kalender {{ site.jaar }}</h2>
+    <div class="kalender-lijst">
+      {% for ev in collections.komende %}
+      <a class="event{% if ev.data.status == 'geannuleerd' %} is-geannuleerd{% endif %}" href="{{ ev.url }}">
+        <div class="datum">
+          <div class="dag">{{ ev.data.datum | dagTegel(ev.data.einddatum) }}</div>
+          <div class="maand">{{ ev.data.datum | maandKort }}</div>
+        </div>
+        <div class="info">
+          <h3>{{ ev.data.titel }}{% if ev.data.status == 'volzet' %}<span class="status-label status-volzet">Volzet</span>{% elif ev.data.status == 'geannuleerd' %}<span class="status-label status-geannuleerd">Geannuleerd</span>{% endif %}</h3>
+          <p>{{ ev.data.aanvang }}{% if ev.data.einduur %} – {{ ev.data.einduur }}{% endif %}{% if ev.data.locatie_naam %} &middot; {{ ev.data.locatie_naam }}{% endif %}</p>
+          <span class="meer-info">Meer info →</span>
+        </div>
+        <div class="prijs">{{ ev.data.prijs }}</div>
+      </a>
+      {% endfor %}
+      {% if collections.komende.length == 0 %}
+      <p class="lege-kalender">Er staan momenteel geen activiteiten gepland. Kom binnenkort terug!</p>
+      {% endif %}
+    </div>
+
+    <div class="inschrijf-box" style="margin-top:2rem">
+      <h3 style="color:var(--roze-donker);margin-bottom:0.7rem">📋 Hoe inschrijven?</h3>
+      <p>Vul het inschrijvingsformulier in en deponeer het in de brievenbus van het buurthuis,<br>
+      of stuur een mailtje naar <strong><a href="mailto:{{ site.email }}">{{ site.email }}</a></strong></p>
+      <p style="margin-top:0.6rem">Betaling via overschrijving op <strong>{{ site.rekening }}</strong> – {{ site.rekeninghouder }}</p>
+    </div>
+
+    <p style="text-align:center;margin-top:1.5rem">
+      <a href="/archief/" style="color:var(--roze-donker);font-weight:600;text-decoration:none">📸 Bekijk voorbije activiteiten →</a>
+    </p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Contact &amp; adres</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div>
+          <h3>Adres</h3>
+          <p>Buurthuis 't Pleintje<br>{{ site.straat }}<br>{{ site.postcode }}</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">✉️</div>
+        <div>
+          <h3>E-mail</h3>
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📰</div>
+        <div>
+          <h3>Mailinglijst</h3>
+          <p>Wil je op de hoogte blijven van activiteiten? Stuur een mailtje en we voegen je toe aan de lijst.</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">🤝</div>
+        <div>
+          <h3>Meewerken?</h3>
+          <p>We zijn altijd op zoek naar enthousiaste vrijwilligers. Ideeën of interesse? Contacteer ons!</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;padding:1rem 1.2rem;background:var(--roze-licht);border-radius:10px;font-size:0.9rem">
+      Met dank aan <strong>Mintus – Brugse Buurten</strong> voor hun steun aan onze werking.
+    </div>
+  </div>
+</section>

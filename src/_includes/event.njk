@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ titel }} – {{ site.naam }}</title>
+  <meta name="description" content="{{ description or titel }} — {{ site.naam }}" />
+  <link rel="icon" href="/images/logo.png" />
+  <link rel="stylesheet" href="/css/event.css" />
+  {% if foto %}<meta property="og:image" content="{{ foto }}" />{% endif %}
+  <meta property="og:title" content="{{ titel }}" />
+  <meta property="og:type" content="article" />
+</head>
+<body>
+
+<nav>
+  <a class="terug" href="/#kalender">← Terug naar kalender</a>
+  <span class="site-naam">{{ site.naam }}</span>
+</nav>
+
+{% set cat = categorieen[categorie] %}
+<header class="event-hero">
+  <div class="type-badge">{% if badge_tekst %}{{ badge_tekst }}{% else %}{{ cat.emoji }} {{ cat.label }}{% endif %}</div>
+  <div class="datum-groot">{{ datum | datumGroot(einddatum) }}</div>
+  <h1>{{ titel }}</h1>
+  <span class="prijs-badge">{{ prijs }}</span>
+</header>
+
+<main class="container">
+
+  {# ── Statusbanners ── #}
+  {% if status == "geannuleerd" %}
+  <div class="status-banner banner-geannuleerd">
+    <strong>❌ Deze activiteit gaat niet door</strong>
+    {{ status_reden or "Deze activiteit werd geannuleerd. Heb je vragen? Neem contact op via " + site.email + "." }}
+  </div>
+  {% elif status == "volzet" %}
+  <div class="status-banner banner-volzet">
+    <strong>🔒 Volzet</strong>
+    Deze activiteit is volzet. Inschrijven is niet meer mogelijk.
+  </div>
+  {% elif inschrijving_binnenkort %}
+  <div class="status-banner banner-info">
+    <strong>ℹ️ Vooraankondiging — inschrijven nog niet mogelijk</strong>
+    {{ binnenkort_tekst or "Laat ons weten dat je interesse hebt, dan houden we je op de hoogte." }}
+  </div>
+  {% elif inschrijving and inschrijving_deadline %}
+  <div class="status-banner banner-deadline">
+    <strong>⚠️ Inschrijven vóór {{ inschrijving_deadline }}</strong>
+    Inschrijving is verplicht voor dit evenement. Zie onderaan hoe je inschrijft.
+  </div>
+  {% endif %}
+
+  {# ── Foto ── #}
+  {% if foto %}
+  <img class="event-foto" src="{{ foto }}" alt="{{ foto_bijschrift or titel }}" />
+  {% if foto_bijschrift %}<p class="event-foto-bijschrift">{{ foto_bijschrift }}</p>{% endif %}
+  {% endif %}
+
+  {# ── Info-blokken ── #}
+  <div class="info-blokken">
+    <div class="info-blok">
+      <span class="label">Datum</span>
+      <span class="waarde">{{ datum | datumGroot(einddatum) }}</span>
+    </div>
+    {% if einduur %}
+    <div class="info-blok">
+      <span class="label">Tijdstip</span>
+      <span class="waarde">{{ aanvang }} – {{ einduur }}</span>
+    </div>
+    {% elif aanvang %}
+    <div class="info-blok">
+      <span class="label">{{ aanvang_label or "Aanvang" }}</span>
+      <span class="waarde">{{ aanvang }}</span>
+    </div>
+    {% endif %}
+    {% if duur %}
+    <div class="info-blok">
+      <span class="label">Duur</span>
+      <span class="waarde">{{ duur }}</span>
+    </div>
+    {% endif %}
+    {% if locatie_naam %}
+    <div class="info-blok">
+      <span class="label">Locatie</span>
+      <span class="waarde">{{ locatie_naam }}{% if locatie_adres %}<br>{{ locatie_adres }}{% endif %}</span>
+    </div>
+    {% endif %}
+    {% for blok in extra_blokken %}
+    <div class="info-blok">
+      <span class="label">{{ blok.label }}</span>
+      <span class="waarde">{{ blok.waarde | safe }}</span>
+    </div>
+    {% endfor %}
+    {% if inschrijving and inschrijving_deadline %}
+    <div class="info-blok">
+      <span class="label">Inschrijven voor</span>
+      <span class="waarde">{{ inschrijving_deadline }}</span>
+    </div>
+    {% endif %}
+    <div class="info-blok">
+      <span class="label">Prijs</span>
+      <span class="waarde">{{ prijs }}</span>
+    </div>
+  </div>
+
+  {# ── Beschrijving ── #}
+  <div class="beschrijving">
+    <h2>{% if categorie == "film" %}Over de film{% elif categorie == "voorstelling" %}Over de voorstelling{% elif categorie == "infosessie" %}Over de infosessie{% else %}Over dit evenement{% endif %}</h2>
+    {{ content | safe }}
+  </div>
+
+  {# ── Meer info-link ── #}
+  {% if meer_info_url %}
+  <a class="meer-info-link" href="{{ meer_info_url }}" target="_blank" rel="noopener">{{ meer_info_tekst or "Meer info" }} →</a>
+  {% endif %}
+
+  {# ── Inschrijven / interesse / gratis ── #}
+  {% if status == "geannuleerd" %}
+    {# geen inschrijfblok bij annulatie #}
+  {% elif inschrijving_binnenkort %}
+  <div class="inschrijf-blok">
+    <h2>📩 Interesse? Laat het ons weten</h2>
+    <p>Inschrijven is nog niet mogelijk, maar laat gerust weten dat je interesse hebt. Dan word je als eerste op de hoogte gebracht zodra inschrijvingen openen.</p>
+    <a class="btn-inschrijf" href="mailto:{{ site.email }}?subject=Interesse {{ titel | urlencode }}">✉ Interesse melden</a>
+  </div>
+  {% elif inschrijving %}
+  <div class="inschrijf-blok">
+    <h2>📋 Inschrijven{% if inschrijving_deadline %} — vóór {{ inschrijving_deadline }}{% endif %}</h2>
+    {% if plaatsen_beperkt %}<p><strong>Let op:</strong> de plaatsen zijn beperkt — schrijf tijdig in.</p>{% endif %}
+    <p>Inschrijven is verplicht. Vul het inschrijvingsformulier in en deponeer het in de brievenbus van het buurthuis, of stuur een mailtje naar <strong>{{ site.email }}</strong>.</p>
+    <p><strong>Betaling:</strong> {{ prijs }}{% if "€" in prijs %} per deelnemer{% endif %} via overschrijving op <strong>{{ site.rekening }}</strong> ({{ site.rekeninghouder }}), met vermelding van je naam en het evenement.</p>
+    {% if inschrijving_deadline %}<p><strong>Deadline:</strong> inschrijven en betalen vóór <strong>{{ inschrijving_deadline }}</strong>.</p>{% endif %}
+    {% if mail_extra %}<p>{{ mail_extra | safe }}</p>{% endif %}
+    <a class="btn-inschrijf" href="mailto:{{ site.email }}?subject=Inschrijving {{ titel | urlencode }}">✉ Inschrijven via mail</a>
+  </div>
+  {% else %}
+  <div class="gratis-blok">
+    <strong>✅ Geen inschrijving nodig</strong>
+    {{ gratis_tekst or "Gewoon langskomen — je bent van harte welkom!" }}
+  </div>
+  {% endif %}
+
+  {# ── Fotogalerij ── #}
+  {% if galerij and galerij.length %}
+  <div class="galerij">
+    <h2>📸 Foto's</h2>
+    <div class="galerij-grid">
+      {% for f in galerij %}<img src="{{ f.afbeelding or f }}" alt="{{ f.bijschrift or titel }}" />{% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+</main>
+
+<footer>
+  <p>© {{ site.jaar }} {{ site.naam }} · {{ site.straat }}, {{ site.postcode }} · <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+</footer>
+
+</body>
+</html>

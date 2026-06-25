@@ -45,16 +45,8 @@ nav .site-naam { font-size: 0.9rem; color: #888; }
   text-transform: uppercase;
   margin-bottom: 0.75rem;
 }
-.event-hero .datum-groot {
-  font-size: 1.1rem;
-  opacity: 0.9;
-  margin-bottom: 0.4rem;
-}
-.event-hero h1 {
-  font-size: clamp(1.4rem, 4vw, 2.2rem);
-  margin-bottom: 0.75rem;
-  line-height: 1.25;
-}
+.event-hero .datum-groot { font-size: 1.1rem; opacity: 0.9; margin-bottom: 0.4rem; }
+.event-hero h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); margin-bottom: 0.75rem; line-height: 1.25; }
 .event-hero .prijs-badge {
   display: inline-block;
   background: #fff;
@@ -65,8 +57,30 @@ nav .site-naam { font-size: 0.9rem; color: #888; }
   font-size: 1rem;
 }
 
+/* ── Statusbanners ── */
+.status-banner {
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+.status-banner strong { font-size: 1.05rem; display: block; margin-bottom: 0.2rem; }
+.banner-deadline { background: #fff3cd; border: 2px solid #ffc107; color: #7a5800; }
+.banner-info { background: #e8f4fd; border: 2px solid #90c8f0; color: #1a5276; }
+.banner-volzet { background: #fff3cd; border: 2px solid #ffc107; color: #7a5800; }
+.banner-geannuleerd { background: #fde2e2; border: 2px solid #e89090; color: #a02020; }
+
 /* ── Content ── */
 .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+.event-foto {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #f0d0d8;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.event-foto-bijschrift { font-size: 0.85rem; color: #888; font-style: italic; margin-bottom: 1.5rem; text-align: center; }
 
 .info-blokken {
   display: grid;
@@ -88,10 +102,7 @@ nav .site-naam { font-size: 0.9rem; color: #888; }
   letter-spacing: 0.05em;
   color: var(--roze-donker);
 }
-.info-blok .waarde {
-  font-size: 0.95rem;
-  color: var(--tekst);
-}
+.info-blok .waarde { font-size: 0.95rem; color: var(--tekst); }
 
 /* ── Beschrijving ── */
 .beschrijving {
@@ -102,13 +113,21 @@ nav .site-naam { font-size: 0.9rem; color: #888; }
   margin-bottom: 2rem;
   line-height: 1.7;
 }
-.beschrijving h2 {
-  color: var(--roze-donker);
-  font-size: 1.05rem;
-  margin-bottom: 0.75rem;
-}
+.beschrijving h2 { color: var(--roze-donker); font-size: 1.05rem; margin-bottom: 0.75rem; }
 .beschrijving p { margin-bottom: 0.6rem; color: #444; }
 .beschrijving p:last-child { margin-bottom: 0; }
+.beschrijving ul { margin: 0.5rem 0 0.5rem 1.2rem; }
+.beschrijving ul li { margin-bottom: 0.3rem; color: #444; font-size: 0.95rem; }
+
+/* ── Meer info-link ── */
+.meer-info-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--roze-donker);
+  font-weight: 600;
+  text-decoration: none;
+}
+.meer-info-link:hover { text-decoration: underline; }
 
 /* ── Inschrijven ── */
 .inschrijf-blok {
@@ -118,11 +137,7 @@ nav .site-naam { font-size: 0.9rem; color: #888; }
   padding: 1.5rem;
   margin-bottom: 2rem;
 }
-.inschrijf-blok h2 {
-  color: var(--roze-donker);
-  font-size: 1.05rem;
-  margin-bottom: 0.75rem;
-}
+.inschrijf-blok h2 { color: var(--roze-donker); font-size: 1.05rem; margin-bottom: 0.75rem; }
 .inschrijf-blok p { font-size: 0.95rem; margin-bottom: 0.5rem; color: #444; line-height: 1.6; }
 .inschrijf-blok strong { color: var(--tekst); }
 .btn-inschrijf {
@@ -150,6 +165,22 @@ nav .site-naam { font-size: 0.9rem; color: #888; }
   font-size: 0.95rem;
 }
 .gratis-blok strong { display: block; margin-bottom: 0.25rem; font-size: 1rem; }
+
+/* ── Fotogalerij ── */
+.galerij { margin-bottom: 2rem; }
+.galerij h2 { color: var(--roze-donker); font-size: 1.05rem; margin-bottom: 0.75rem; }
+.galerij-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.6rem;
+}
+.galerij-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #f0d0d8;
+}
 
 /* ── Footer ── */
 footer {

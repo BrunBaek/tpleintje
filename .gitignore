@@ -1,5 +1,9 @@
 # Lokale tooling & sessie-instellingen
 .claude/
 
+# Node / Eleventy
+node_modules/
+_site/
+
 # macOS
 .DS_Store

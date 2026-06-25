@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title or site.naam }}</title>
+  <meta name="description" content="{{ description or "Buurtcomité 't Pleintje — een warm buurtcomité in de Sint-Baafsstraat, 8200 Sint-Andries. Activiteiten voor en door de buurt." }}" />
+  <link rel="icon" href="/images/logo.png" />
+  <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png" alt="'t Pleintje logo" />
+  </a>
+  <ul>
+    <li><a href="/over/"{% if pagina == "over" %} aria-current="page"{% endif %}>Over ons</a></li>
+    <li><a href="/#vast">Activiteiten</a></li>
+    <li><a href="/#kalender">Kalender</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</nav>
+
+{{ content | safe }}
+
+<footer>
+  <p>© {{ site.jaar }} {{ site.naam }} · {{ site.straat }}, {{ site.postcode }} ·
+  <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+</footer>
+
+</body>
+</html>
