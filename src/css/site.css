@@ -216,6 +216,28 @@ h2 {
   overflow: hidden;
 }
 .vast-foto { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+
+/* Kruisvervaging tussen twee foto's (kaarten ↔ rummikub) */
+.vast-slideshow { position: relative; width: 100%; aspect-ratio: 16 / 10; }
+.vast-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.vast-slideshow img.fade-boven { animation: vastKruisfade 10s ease-in-out infinite; }
+@keyframes vastKruisfade {
+  0%   { opacity: 1; }
+  42%  { opacity: 1; }
+  50%  { opacity: 0; }
+  92%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vast-slideshow img.fade-boven { animation: none; opacity: 1; }
+}
 .vast-body { padding: 1rem 1.2rem; border-left: 4px solid var(--roze); }
 .vast-item h3 { color: var(--roze-donker); font-size: 1rem; margin-bottom: 0.3rem; }
 .vast-item p { font-size: 0.88rem; color: #555; }
