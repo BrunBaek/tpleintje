@@ -1,7 +1,7 @@
-# Netlify serveert vanaf de wortel → pathPrefix "/" (geen /tpleintje/-subpad).
-# GitHub Pages blijft intussen op /tpleintje/ dankzij de config-default.
+# Eleventy kiest het pathPrefix zelf o.b.v. de NETLIFY-omgevingsvariabele
+# (wortel op Netlify, /tpleintje/ op GitHub Pages). Zie .eleventy.js.
 [build]
-  command = "npx @11ty/eleventy --pathprefix=/"
+  command = "npm run build"
   publish = "_site"
 
 # Decap CMS gebruikt Git Gateway via Netlify Identity (login).

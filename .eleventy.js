@@ -88,7 +88,9 @@ module.exports = function (eleventyConfig) {
   );
 
   return {
-    pathPrefix: "/tpleintje/",
+    // Netlify serveert vanaf de wortel; GitHub Pages vanaf /tpleintje/.
+    // Netlify zet altijd NETLIFY=true in de build-omgeving.
+    pathPrefix: process.env.NETLIFY ? "/" : "/tpleintje/",
     dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk"
