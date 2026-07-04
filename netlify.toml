@@ -1,6 +1,7 @@
+# Netlify serveert vanaf de wortel → pathPrefix "/" (geen /tpleintje/-subpad).
+# GitHub Pages blijft intussen op /tpleintje/ dankzij de config-default.
 [build]
-  command = "npm run build"
+  command = "npx @11ty/eleventy --pathprefix=/"
   publish = "_site"
 
-# Decap CMS gebruikt Git Gateway via Netlify Identity.
-# Inschrijvingen kunnen later via een Netlify Function of formulierdienst.
+# Decap CMS gebruikt Git Gateway via Netlify Identity (login).
