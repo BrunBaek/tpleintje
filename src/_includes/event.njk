@@ -128,11 +128,24 @@
   <div class="inschrijf-blok">
     <h2>📋 Inschrijven{% if inschrijving_deadline %} — vóór {{ inschrijving_deadline }}{% endif %}</h2>
     {% if plaatsen_beperkt %}<p><strong>Let op:</strong> de plaatsen zijn beperkt — schrijf tijdig in.</p>{% endif %}
-    <p>Inschrijven is verplicht. Vul het inschrijvingsformulier in en deponeer het in de brievenbus van het buurthuis, of stuur een mailtje naar <strong>{{ site.email }}</strong>.</p>
+    <p>Schrijf je in via het formulier hieronder. Liever anders? Stuur een mailtje naar <strong>{{ site.email }}</strong> of deponeer het inschrijvingsformulier in de brievenbus van het buurthuis.</p>
     <p><strong>Betaling:</strong> {{ prijs }}{% if "€" in prijs %} per deelnemer{% endif %} via overschrijving op <strong>{{ site.rekening }}</strong> ({{ site.rekeninghouder }}), met vermelding van je naam en het evenement.</p>
     {% if inschrijving_deadline %}<p><strong>Deadline:</strong> inschrijven en betalen vóór <strong>{{ inschrijving_deadline }}</strong>.</p>{% endif %}
     {% if mail_extra %}<p>{{ mail_extra | safe }}</p>{% endif %}
-    <a class="btn-inschrijf" href="mailto:{{ site.email }}?subject=Inschrijving {{ titel | urlencode }}">✉ Inschrijven via mail</a>
+
+    <form class="inschrijf-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7f91d7cd-cdec-4ce0-8b48-e62324977e26" />
+      <input type="hidden" name="subject" value="Inschrijving: {{ titel }}" />
+      <input type="hidden" name="from_name" value="Inschrijving 't Pleintje" />
+      <input type="hidden" name="Activiteit" value="{{ titel }}{% if datum %} ({{ datum | datumLang }}){% endif %}" />
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+      <label>Naam<input type="text" name="Naam" required /></label>
+      <label>E-mail<input type="email" name="E-mail" required /></label>
+      <label>Aantal personen<input type="number" name="Aantal personen" value="1" min="1" /></label>
+      <label>Opmerking (optioneel)<textarea name="Opmerking" rows="3"></textarea></label>
+      <button type="submit" class="btn-inschrijf">Inschrijven</button>
+      <p class="inschrijf-status" role="status" aria-live="polite"></p>
+    </form>
   </div>
   {% else %}
   <div class="gratis-blok">
@@ -156,6 +169,36 @@
 <footer>
   <p>© {{ huidigJaar }} {{ site.naam }} · {{ site.straat }}, {{ site.postcode }} · <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
 </footer>
+
+<script>
+  (function () {
+    var form = document.querySelector('.inschrijf-form');
+    if (!form) return;
+    var status = form.querySelector('.inschrijf-status');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      status.className = 'inschrijf-status';
+      status.textContent = 'Bezig met verzenden…';
+      fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) })
+        .then(function (r) { return r.json(); })
+        .then(function (json) {
+          if (json.success) {
+            form.reset();
+            var btn = form.querySelector('button'); if (btn) { btn.disabled = true; }
+            status.className = 'inschrijf-status ok';
+            status.textContent = '✅ Bedankt! Je inschrijving is verzonden. We nemen contact met je op.';
+          } else {
+            status.className = 'inschrijf-status fout';
+            status.textContent = 'Er ging iets mis. Probeer opnieuw of mail ons rechtstreeks.';
+          }
+        })
+        .catch(function () {
+          status.className = 'inschrijf-status fout';
+          status.textContent = 'Er ging iets mis. Probeer opnieuw of mail ons rechtstreeks.';
+        });
+    });
+  })();
+</script>
 
 </body>
 </html>

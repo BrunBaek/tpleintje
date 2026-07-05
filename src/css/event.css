@@ -154,6 +154,29 @@ nav .site-naam { font-size: 0.9rem; color: #888; }
 }
 .btn-inschrijf:hover { background: var(--roze); }
 
+/* ── Inschrijfformulier ── */
+.inschrijf-form { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 1.2rem; }
+.inschrijf-form label {
+  display: flex; flex-direction: column; gap: 0.25rem;
+  font-size: 0.85rem; font-weight: 600; color: var(--roze-donker);
+}
+.inschrijf-form input, .inschrijf-form textarea {
+  font: inherit; font-weight: 400;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #f0c0cc; border-radius: 8px;
+  background: #fff; color: var(--tekst);
+}
+.inschrijf-form input:focus, .inschrijf-form textarea:focus {
+  outline: none; border-color: var(--roze); box-shadow: 0 0 0 2px rgba(232,130,154,0.3);
+}
+.inschrijf-form textarea { resize: vertical; }
+.inschrijf-form button.btn-inschrijf { align-self: flex-start; border: none; cursor: pointer; font: inherit; margin-top: 0.3rem; }
+.inschrijf-form button.btn-inschrijf[disabled] { opacity: 0.5; cursor: default; }
+.inschrijf-form .hp { position: absolute; left: -9999px; }
+.inschrijf-status { font-size: 0.9rem; margin: 0.4rem 0 0; }
+.inschrijf-status.ok { color: #2e7d52; font-weight: 600; }
+.inschrijf-status.fout { color: #a02020; }
+
 /* ── Geen inschrijving nodig ── */
 .gratis-blok {
   background: #f0faf4;
