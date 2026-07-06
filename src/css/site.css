@@ -126,6 +126,11 @@ h2 {
 .over-sub { margin-bottom: 2.5rem; }
 .over-sub p { margin-bottom: 0.6rem; color: #444; }
 
+/* ── Paginafoto (bv. voorkant buurthuis) ── */
+.paginafoto { margin: 0 0 1.8rem; }
+.paginafoto img { display: block; width: 100%; border-radius: 12px; border: 1px solid #f0d0d8; }
+.paginafoto figcaption { text-align: center; font-size: 0.85rem; color: #888; margin-top: 0.4rem; font-style: italic; }
+
 /* ── Buurtkaart ── */
 .buurtkaart {
   display: block;
