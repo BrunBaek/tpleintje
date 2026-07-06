@@ -118,6 +118,12 @@
   {# ── Inschrijven / interesse / gratis ── #}
   {% if status == "geannuleerd" %}
     {# geen inschrijfblok bij annulatie #}
+  {% elif status == "volzet" %}
+  <div class="inschrijf-blok">
+    <h2>🔒 Volzet</h2>
+    <p>Deze activiteit is <strong>volzet</strong> — inschrijven is niet meer mogelijk.</p>
+    <p>Wil je op de <strong>reservelijst</strong>? Stuur een mailtje naar <strong><a href="mailto:{{ site.email }}?subject=Reservelijst {{ titel | urlencode }}">{{ site.email }}</a></strong>. We nemen contact met je op als er een plaats vrijkomt.</p>
+  </div>
   {% elif inschrijving_binnenkort %}
   <div class="inschrijf-blok">
     <h2>📩 Interesse? Laat het ons weten</h2>
