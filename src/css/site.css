@@ -217,7 +217,7 @@ h2 {
 }
 .vast-foto { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
 
-/* Kruisvervaging tussen twee foto's (kaarten ↔ rummikub) */
+/* Kruisvervaging tussen meerdere foto's (kaarten ↔ rummikub ↔ maandag) */
 .vast-slideshow { position: relative; width: 100%; aspect-ratio: 16 / 10; }
 .vast-slideshow img {
   position: absolute;
@@ -226,17 +226,22 @@ h2 {
   height: 100%;
   object-fit: cover;
   display: block;
+  opacity: 0;
+  animation: vastKruisfade 18s ease-in-out infinite;
 }
-.vast-slideshow img.fade-boven { animation: vastKruisfade 10s ease-in-out infinite; }
+.vast-slideshow img:nth-child(1) { animation-delay: 0s; }
+.vast-slideshow img:nth-child(2) { animation-delay: 6s; }
+.vast-slideshow img:nth-child(3) { animation-delay: 12s; }
 @keyframes vastKruisfade {
-  0%   { opacity: 1; }
-  42%  { opacity: 1; }
-  50%  { opacity: 0; }
-  92%  { opacity: 0; }
-  100% { opacity: 1; }
+  0%   { opacity: 0; }
+  3%   { opacity: 1; }
+  33%  { opacity: 1; }
+  38%  { opacity: 0; }
+  100% { opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .vast-slideshow img.fade-boven { animation: none; opacity: 1; }
+  .vast-slideshow img { animation: none; opacity: 0; }
+  .vast-slideshow img:first-child { opacity: 1; }
 }
 .vast-body { padding: 1rem 1.2rem; border-left: 4px solid var(--roze); }
 .vast-item h3 { color: var(--roze-donker); font-size: 1rem; margin-bottom: 0.3rem; }
