@@ -5,9 +5,12 @@
   "license": "MIT",
   "scripts": {
     "start": "eleventy --serve --port=8742",
-    "build": "eleventy"
+    "build": "eleventy && node optimize-images.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"
+  },
+  "dependencies": {
+    "sharp": "^0.35.3"
   }
 }
