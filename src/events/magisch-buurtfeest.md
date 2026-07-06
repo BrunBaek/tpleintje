@@ -13,6 +13,7 @@ inschrijving: true
 inschrijving_binnenkort: false
 inschrijving_deadline: Voor de maaltijd - inschrijven vóór 15 augustus
 plaatsen_beperkt: false
+foto: https://armandmagic.be/wp-content/uploads/2020/08/armandmagic11.png
 gratis_tekst: Je hoeft niet in te schrijven als je niet deelneemt aan de maaltijd.
 ---
 **12u aperitief en woordje van de burgemeester**
