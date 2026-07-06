@@ -1,7 +1,0 @@
-# Eleventy kiest het pathPrefix zelf o.b.v. de NETLIFY-omgevingsvariabele
-# (wortel op Netlify, /tpleintje/ op GitHub Pages). Zie .eleventy.js.
-[build]
-  command = "npm run build"
-  publish = "_site"
-
-# Decap CMS gebruikt Git Gateway via Netlify Identity (login).
