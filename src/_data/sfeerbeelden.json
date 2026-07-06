@@ -3,16 +3,36 @@
     {
       "titel": "Maandagnamiddag",
       "fotos": [
-        { "foto": "/images/sfeer/maandag.jpg", "bijschrift": "Kaarten, Rummikub en een babbel" },
-        { "foto": "/images/sfeer/kaarten.jpg", "bijschrift": "Kaarten in het buurthuis" },
-        { "foto": "/images/sfeer/rummikub.jpg", "bijschrift": "Rummikub met de buren" }
+        {
+          "foto": "/images/sfeer/maandag.jpg",
+          "bijschrift": "Kaarten, Rummikub en een babbel"
+        },
+        {
+          "foto": "/images/sfeer/kaarten.jpg",
+          "bijschrift": "Kaarten in het buurthuis"
+        },
+        {
+          "foto": "/images/sfeer/rummikub.jpg",
+          "bijschrift": "Rummikub met de buren"
+        }
       ]
     },
     {
       "titel": "Loopclub 't Pleintje",
       "fotos": [
-        { "foto": "/images/sfeer/loopclub.jpg", "bijschrift": "Klaar voor de start" }
+        {
+          "foto": "/images/sfeer/loopclub.jpg",
+          "bijschrift": "Klaar voor de start"
+        }
       ]
+    },
+    {
+      "fotos": [
+        {
+          "foto": "/images/sfeer/20260417_072626.jpg"
+        }
+      ],
+      "titel": "-"
     }
   ]
 }
