@@ -13,4 +13,6 @@ inschrijving: false
 inschrijving_binnenkort: false
 plaatsen_beperkt: false
 ---
-Wie ingeschreven is kreeg persoonlijke info
+Wie ingeschreven was is persoonlijk op de hoogte gebracht
+
+Maak kennis met het schieten met luchtdrukwapens met hypermoderne lasertechnologie, onder begeleiding van ervaren trainers van Sint-Pieters-Roos
