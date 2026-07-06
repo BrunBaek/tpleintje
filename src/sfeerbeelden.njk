@@ -15,14 +15,19 @@ permalink: /sfeerbeelden/
 </header>
 
 <main class="tekst-container">
-  {% if sfeerbeelden.fotos and sfeerbeelden.fotos.length %}
-  <div class="galerij-raster">
-    {% for f in sfeerbeelden.fotos %}
-    <button class="galerij-item" type="button" data-groot="{{ f.foto | url }}" data-bijschrift="{{ f.bijschrift }}">
-      <img src="{{ f.foto }}" alt="{{ f.bijschrift or 'Sfeerbeeld' }}" loading="lazy" />
-    </button>
-    {% endfor %}
-  </div>
+  {% if sfeerbeelden.albums and sfeerbeelden.albums.length %}
+  {% for album in sfeerbeelden.albums %}
+  <section class="galerij-album">
+    <h2>{{ album.titel }}</h2>
+    <div class="galerij-raster">
+      {% for f in album.fotos %}
+      <button class="galerij-item" type="button" data-groot="{{ f.foto | url }}" data-bijschrift="{{ f.bijschrift }}">
+        <img src="{{ f.foto }}" alt="{{ f.bijschrift or album.titel }}" loading="lazy" />
+      </button>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
   {% else %}
   <p class="lege-kalender">Er staan nog geen sfeerbeelden. Kom binnenkort terug!</p>
   {% endif %}

@@ -24,14 +24,21 @@ collections:
         media_folder: "/images/sfeer"
         public_folder: "/images/sfeer"
         fields:
-          - label: "Foto's"
-            name: "fotos"
-            label_singular: "Foto"
+          - label: "Albums (per activiteit/onderwerp)"
+            name: "albums"
+            label_singular: "Album"
             widget: "list"
-            summary: "{{fields.bijschrift}}"
+            summary: "{{fields.titel}}"
             fields:
-              - { label: "Foto", name: "foto", widget: "image" }
-              - { label: "Bijschrift", name: "bijschrift", widget: "string", required: false }
+              - { label: "Titel (activiteit of onderwerp)", name: "titel", widget: "string" }
+              - label: "Foto's"
+                name: "fotos"
+                label_singular: "Foto"
+                widget: "list"
+                summary: "{{fields.bijschrift}}"
+                fields:
+                  - { label: "Foto", name: "foto", widget: "image" }
+                  - { label: "Bijschrift", name: "bijschrift", widget: "string", required: false }
 
   - name: "events"
     label: "Activiteiten"

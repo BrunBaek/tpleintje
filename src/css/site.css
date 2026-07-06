@@ -127,6 +127,8 @@ h2 {
 .over-sub p { margin-bottom: 0.6rem; color: #444; }
 
 /* ── Sfeerbeelden-galerij ── */
+.galerij-album { margin-bottom: 2.2rem; }
+.galerij-album h2 { font-size: 1.3rem; color: var(--roze-donker); margin-bottom: 0.8rem; }
 .galerij-raster {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
