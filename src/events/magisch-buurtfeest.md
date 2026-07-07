@@ -12,27 +12,26 @@ prijs: Voor maaltijd volwassenen € 20/pp, kinderen 12/pp - goochelaar vanaf
 status: open
 inschrijving: true
 inschrijving_binnenkort: false
-inschrijving_deadline: Voor de maaltijd - inschrijven vóór 15 augustus
+inschrijving_deadline: de maaltijd - inschrijven vóór 15 augustus
 plaatsen_beperkt: false
 foto: https://armandmagic.be/wp-content/uploads/2020/08/armandmagic11.png
 gratis_tekst: Je hoeft niet in te schrijven als je niet deelneemt aan de maaltijd.
 ---
-**12u aperitief en woordje van de burgemeester**
+**12u aperitief en woordje van de burgemeester**\
+De speelfiets is aanwezig. Daarin zit leuk buitenspeelgoed voor de kinderen.
 
 **13u feestmaaltijd**
 
 Voorgerecht – keuze uit:
 
-1. Gebakken scampi’s met een zachte currysaus en broodje\
+1. Gebakken scampi’s met een zachte currysaus en broodje
 2. Rode biet met geitenkaas, walnoten en broodje
 
 Hoofdgerecht – keuze uit:
 1.Gebakken kippenfilet met groentjes en krieltjes met rozemarijn. 
 2.Vegetarisch: Stoofpotje van zomerse groenten en krieltjes met rozemarijn 
 
-Dessert:
-
-Chocomousse
+Dessert: Chocomousse
 
 **14u30 Armand Magic**
 
