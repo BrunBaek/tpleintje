@@ -2,7 +2,7 @@
 titel: Lamp lasercutten
 uitgelicht: false
 categorie: buurtactiviteit
-datum: 2026-11-19
+datum: 2026-11-12
 aanvang: "19"
 einduur: 21u30
 locatie_naam: MaM - Howest
