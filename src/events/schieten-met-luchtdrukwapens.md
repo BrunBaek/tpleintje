@@ -10,8 +10,10 @@ status: volzet
 inschrijving: false
 inschrijving_binnenkort: false
 plaatsen_beperkt: false
-mail_extra: Wie ingeschreven was is persoonlijk op de hoogte gebracht
+mail_extra: ""
 ---
-Een aanbod vanuit Brugse Buurten
+Een aanbod vanuit Brugse Buurten.
 
-Maak kennis met het schieten met luchtdrukwapens met hypermoderne lasertechnologie, onder begeleiding van ervaren trainers van Sint-Pieters-Roos
+Wie ingeschreven was is persoonlijk op de hoogte gebracht.
+
+Maak kennis met het schieten met luchtdrukwapens met hypermoderne lasertechnologie, onder begeleiding van ervaren trainers van Sint-Pieters-Roos.
