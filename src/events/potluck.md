@@ -1,9 +1,10 @@
 ---
 titel: Potluck
+uitgelicht: false
 categorie: buurtactiviteit
 datum: 2026-08-07
 aanvang: 17u
-einduur: ""
+einduur: 19u
 locatie_naam: Buurthuis 't Pleintje, Sint-Baafsstraat
 prijs: gratis
 status: open
