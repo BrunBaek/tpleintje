@@ -1,6 +1,7 @@
 ---
 titel: Keramiek
-categorie: buurtactiviteit
+uitgelicht: false
+categorie: brugse-buurten
 datum: 2026-09-23
 aanvang: 19u
 einduur: 21u30
@@ -10,7 +11,7 @@ prijs: € 5
 status: open
 inschrijving: true
 inschrijving_binnenkort: false
-inschrijving_deadline: 3 juli - hoe later hoe minder kans dat er nog plaats is
+inschrijving_deadline: zo snel mogelijk - plaatsen beperkt
 plaatsen_beperkt: true
 ---
 Open crea-atelier in het Mam (Mind And Makerspace) Howest Spoorwegstraat 4\
