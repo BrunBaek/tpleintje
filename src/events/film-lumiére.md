@@ -1,5 +1,6 @@
 ---
 titel: Film Lumiére
+uitgelicht: false
 categorie: film
 datum: 2026-10-18
 aanvang: 20u
@@ -9,7 +10,7 @@ prijs: € 5 - drankje inbegrepen
 status: open
 inschrijving: true
 inschrijving_binnenkort: false
-inschrijving_deadline: 9 september - daarna minder kans om nog een ticket te bemachtigen
-plaatsen_beperkt: false
+inschrijving_deadline: zo snel mogelijk - plaatsen beperkt
+plaatsen_beperkt: true
 ---
 Film Lumiére - titel is momenteel nog niet gekend
