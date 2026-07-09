@@ -7,7 +7,7 @@ aanvang: "14u30 "
 einduur: 17u
 locatie_naam: Buurthuis 't Pleintje
 locatie_adres: Sint-Baafsstraat
-prijs: Vrije bijdrage
+prijs: € 5
 status: open
 inschrijving: true
 inschrijving_binnenkort: false
