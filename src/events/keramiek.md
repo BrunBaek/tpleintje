@@ -11,7 +11,6 @@ prijs: € 5
 status: open
 inschrijving: true
 inschrijving_binnenkort: false
-inschrijving_deadline: zo snel mogelijk - plaatsen beperkt
 plaatsen_beperkt: true
 ---
 Open crea-atelier in het Mam (Mind And Makerspace) Howest Spoorwegstraat 4\
