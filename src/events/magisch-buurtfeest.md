@@ -17,8 +17,8 @@ opties:
 status: open
 inschrijving: true
 inschrijving_binnenkort: false
-inschrijving_deadline: 15 augustus enkel voor maaltijd. Gelieve u maaltijd keuze
-  als opmerking op te geven.
+inschrijving_deadline: 15 augustus enkel voor de maaltijd. Gelieve uw
+  maaltijdkeuze in de opmerking te vermelden.
 plaatsen_beperkt: false
 foto: https://armandmagic.be/wp-content/uploads/2020/08/armandmagic11.png
 gratis_tekst: Je hoeft niet in te schrijven als je niet deelneemt aan de maaltijd.
