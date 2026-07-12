@@ -1,4 +1,5 @@
 ---
+titel: Magisch buurtfeest
 uitgelicht: true
 categorie: buurtactiviteit
 datum: 2026-08-30
@@ -8,19 +9,19 @@ locatie_naam: Buurthuis 't Pleintje
 locatie_adres: Sint-Baafsstraat Sint-Andries Brugge
 prijs: Voor maaltijd volwassenen € 20/pp, kinderen 12/pp - goochelaar vanaf
   14u30 gratis
-status: open
-foto: https://armandmagic.be/wp-content/uploads/2020/08/armandmagic11.png
-gratis_tekst: Je hoeft niet in te schrijven als je niet deelneemt aan de maaltijd.
 opties:
   - label: Volwassene
     prijs: € 20
   - label: Kind
     prijs: € 12
-titel: Magisch buurtfeest
+status: open
 inschrijving: true
 inschrijving_binnenkort: false
-inschrijving_deadline: 15 augustus enkel voor maaltijd
+inschrijving_deadline: 15 augustus enkel voor maaltijd. Gelieve u maaltijd keuze
+  als opmerking op te geven.
 plaatsen_beperkt: false
+foto: https://armandmagic.be/wp-content/uploads/2020/08/armandmagic11.png
+gratis_tekst: Je hoeft niet in te schrijven als je niet deelneemt aan de maaltijd.
 ---
 **12u aperitief en woordje van de burgemeester**\
 De speelfiets is aanwezig. Daarin zit leuk buitenspeelgoed voor de kinderen.
