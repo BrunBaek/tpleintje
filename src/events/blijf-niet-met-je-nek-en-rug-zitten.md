@@ -12,5 +12,6 @@ inschrijving: true
 inschrijving_binnenkort: false
 inschrijving_deadline: 15 oktober
 plaatsen_beperkt: false
+foto: /images/events/blijf-niet-met-je-rug-en-nek-zitten.avif
 ---
 Tijdens deze sessie geeft een deskundige je info over de functie van de nek en de rug. Je verneemt wat de meest voorkomende klachten zijn en je krijgt praktische tips om rug- en nekklachten te voorkomen.
