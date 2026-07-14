@@ -13,6 +13,7 @@ inschrijving: true
 inschrijving_binnenkort: false
 inschrijving_deadline: ""
 plaatsen_beperkt: true
+foto: /images/events/20260714_110200-1-.jpg
 ---
 Open crea-atelier in het Mam (Mind And Makerspace) Howest Spoorwegstraat 4\
 (in Brugge gekend als het ‘Chinees Paviljoen’)
