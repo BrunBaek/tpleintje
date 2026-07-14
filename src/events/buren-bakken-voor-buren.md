@@ -1,5 +1,6 @@
 ---
 titel: Buren bakken voor buren
+uitgelicht: false
 categorie: buurtactiviteit
 datum: 2026-10-11
 aanvang: 14u
@@ -11,6 +12,7 @@ status: open
 inschrijving: false
 inschrijving_binnenkort: false
 plaatsen_beperkt: false
+foto: /images/events/img_7071.jpg
 ---
 Een gezellige namiddag samen met je buren.
 
